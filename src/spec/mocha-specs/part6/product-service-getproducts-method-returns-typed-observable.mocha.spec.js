@@ -30,11 +30,11 @@ describe('ProductService getProducts Method', function() {
     } catch (e) {
       assert(false, "The ProductService hasn't been created yet.")
     }
-    let re = /productsUrl\)\s*\.\s*map\([\w\s\<\>\:\[\]\.\>\<\(\)]+\s*\=\>\s*([\w\<\>\[\]]+)response/
+    let re = /\s*\<Product\[\]\>\s*/
     let match = file.match(re);
     assert(Array.isArray(file.match(re)), "The `getProducts()` response JSON isn't asserted as type `Product[]`.");
     
-    let the_type = match[1].trim();
+    let the_type = match[0].trim();
     let re2 = /\s*\<Product\[\]\>\s*/
     let match2 = the_type.match(re2);
 
